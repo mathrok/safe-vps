@@ -1,0 +1,9 @@
+safe-vps
+Copyright 2026 mathrok (github.com/mathrok)
+
+Este projeto foi feito com o auxílio do Claude Code (Anthropic).
+
+A ideia de padronizar o início de uma VPS num script, e a lista de
+proteções do kernel e da rede (sysctl) da etapa 9, vieram do projeto
+Gaia-harden (https://github.com/Black-Ghost-Corp/Gaia-harden), distribuído
+sob a licença Apache License 2.0. Agradecimento aos seus autores.
