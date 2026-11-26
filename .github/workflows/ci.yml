@@ -1,0 +1,20 @@
+# Confere o script a cada mudança: erros de sintaxe, boas práticas
+# (shellcheck) e uma execução de verdade no modo "só conferir", que não
+# muda nada, num Ubuntu 24.04.
+name: CI
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Sintaxe
+        run: bash -n safe-vps.sh
+      - name: ShellCheck
+        run: shellcheck safe-vps.sh
+      - name: Modo conferir (não muda nada)
+        run: sudo bash safe-vps.sh --respostas exemplo-respostas.conf --conferir
