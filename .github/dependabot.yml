@@ -1,0 +1,23 @@
+# DEPENDABOT: mantém atualizadas as GitHub Actions usadas pelo CI.
+#
+# O safe-vps é um único script em Bash, sem pacotes de terceiros; a única
+# coisa "de fora" que ele usa são as GitHub Actions do arquivo
+# .github/workflows/ci.yml (por exemplo actions/checkout). Uma vez por mês
+# o Dependabot confere se há versão nova delas e abre um único PR.
+#
+# Repositório público: o GitHub Actions não cobra minutos aqui.
+
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+      time: "06:00"
+      timezone: America/Sao_Paulo
+    open-pull-requests-limit: 1
+    commit-message:
+      prefix: "Dependencies"
+    groups:
+      github-actions:
+        patterns: ["*"]
